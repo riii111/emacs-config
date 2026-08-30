@@ -30,6 +30,7 @@ Kotlinは`kotlin-mode`による構文強調と編集を既定とし、Alpha版LS
 | 文脈に合うアクションを即実行 | `C-;` (`embark-dwim`) |
 | Diredを開く | `C-x d` |
 | Diredを編集可能にする | `C-x C-q` (`wdired-change-to-wdired-mode`) |
+| Markdownを閲覧する | `C-c m` (`riii-markdown-view`) |
 | Magitの状態画面を開く | `C-c g` |
 | 定義と参照 | `M-.` / `M-?` (Xref) |
 | コードアクション | `C-c l a` |

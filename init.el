@@ -4,6 +4,7 @@
 (require 'riii-completion)
 (require 'riii-project)
 (require 'riii-dired)
+(require 'riii-markdown)
 (require 'riii-eglot)
 (require 'riii-languages)
 (require 'riii-ui)
