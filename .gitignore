@@ -1,0 +1,9 @@
+/elpa/
+/eln-cache/
+/tree-sitter/
+/transient/
+/var/
+/auto-save-list/
+/network-security.data
+/user-lisp/.user-lisp-autoloads.el
+*.elc
