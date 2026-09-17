@@ -15,14 +15,22 @@
         (tsx
          "https://github.com/tree-sitter/tree-sitter-typescript"
          :commit "8e13e1db35b941fc57f2bd2dd4628180448c17d5"
-         :source-dir "tsx/src")))
+         :source-dir "tsx/src")
+        (markdown
+         "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
+         :commit "413285231ce8fa8b11e7074bbe265b48aa7277f9"
+         :source-dir "tree-sitter-markdown/src")
+        (markdown-inline
+         "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
+         :commit "413285231ce8fa8b11e7074bbe265b48aa7277f9"
+         :source-dir "tree-sitter-markdown-inline/src")))
 
 (defun riii-treesit-install-grammars ()
-  "Install the Rust, TypeScript, and TSX grammars used by this configuration."
+  "Install the Rust, TypeScript, TSX, and Markdown grammars used by this configuration."
   (interactive)
   (unless (treesit-available-p)
     (user-error "This Emacs was built without tree-sitter support"))
-  (dolist (language '(rust typescript tsx))
+  (dolist (language '(rust typescript tsx markdown markdown-inline))
     (unless (treesit-language-available-p language)
       (treesit-install-language-grammar language))))
 

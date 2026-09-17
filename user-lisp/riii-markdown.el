@@ -1,31 +1,13 @@
-;;; riii-markdown.el --- Markdown viewing with mdfried -*- lexical-binding: t; -*-
+;;; riii-markdown.el --- In-buffer Markdown rendering -*- lexical-binding: t; -*-
 
-(defun riii-markdown-view ()
-  "View the current file with mdfried in a Kitty overlay."
-  (interactive)
-  (unless buffer-file-name
-    (user-error "This buffer is not visiting a file"))
-  (when (file-remote-p buffer-file-name)
-    (user-error "mdfried cannot view remote files"))
-  (let ((kitten (executable-find "kitten"))
-        (mdfried (executable-find "mdfried")))
-    (unless kitten
-      (user-error "kitten is not available on PATH"))
-    (unless mdfried
-      (user-error "mdfried is not available on PATH"))
-    (unless (getenv "KITTY_LISTEN_ON")
-      (user-error "Kitty remote control is not available in this Emacs process"))
-    (save-buffer)
-    (let ((status
-           (call-process
-            kitten nil nil nil
-            "@" "launch" "--self" "--no-response" "--type=overlay"
-            (concat "--cwd=" (file-name-directory buffer-file-name))
-            mdfried (expand-file-name buffer-file-name))))
-      (unless (eq status 0)
-        (user-error "Failed to launch mdfried (exit %s)" status)))))
+(require 'use-package)
 
-(global-set-key (kbd "C-c m") #'riii-markdown-view)
+(use-package markdown-ts-mode
+  :ensure nil
+  :mode ("\\.md\\'" . markdown-ts-mode)
+  :custom
+  (markdown-ts-hide-markup t)
+  (markdown-ts-fontify-code-blocks-natively t))
 
 (provide 'riii-markdown)
 ;;; riii-markdown.el ends here

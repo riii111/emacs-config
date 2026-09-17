@@ -21,7 +21,7 @@ Kotlinは`kotlin-mode`による構文強調と編集を既定とし、Alpha版LS
 
 | 目的 | 操作 |
 | --- | --- |
-| プロジェクトのファイルを開く | `C-x p f` (`project-find-file`) |
+| プロジェクトのファイルを開く | `C-x p f`（gitignore されたファイルも含む） |
 | バッファを切り替える | `C-x b` (`consult-buffer`) |
 | 現在のバッファを検索 | `M-s l` (`consult-line`) |
 | プロジェクトをripgrep検索 | `M-s r` (`consult-ripgrep`) |
@@ -30,7 +30,9 @@ Kotlinは`kotlin-mode`による構文強調と編集を既定とし、Alpha版LS
 | 文脈に合うアクションを即実行 | `C-;` (`embark-dwim`) |
 | Diredを開く | `C-x d` |
 | Diredを編集可能にする | `C-x C-q` (`wdired-change-to-wdired-mode`) |
-| Markdownを閲覧する | `C-c m` (`riii-markdown-view`) |
+| Finderや外部アプリで開く | Diredで `E` (`dired-do-open`) |
+| ファイルの絶対パスをコピー | `C-c w` |
+| Markdownを常時レンダリングする | `.md` を開く（`markdown-ts-mode`） |
 | Magitの状態画面を開く | `C-c g` |
 | 定義と参照 | `M-.` / `M-?` (Xref) |
 | コードアクション | `C-c l a` |

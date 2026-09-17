@@ -2,8 +2,16 @@
 
 (require 'use-package)
 
+(defun riii-project-find-file ()
+  "Visit a file in the current project, including gitignored files."
+  (interactive)
+  (project-find-file t))
+
 (use-package project
-  :ensure nil)
+  :ensure nil
+  :bind
+  (:map project-prefix-map
+        ("f" . riii-project-find-file)))
 
 (use-package magit
   :ensure t
