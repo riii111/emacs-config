@@ -1,6 +1,7 @@
 ;;; riii-ui.el --- Minimal user interface settings -*- lexical-binding: t; -*-
 
-(load-theme 'modus-vivendi t)
+(load-theme 'modus-vivendi-tritanopia t)
+(setq eldoc-display-functions '(eldoc-display-in-buffer))
 (global-display-line-numbers-mode 1)
 (global-hl-line-mode 1)
 (column-number-mode 1)
